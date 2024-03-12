@@ -1,0 +1,22 @@
+﻿@model List<HospitalManagement.ViewModel.GenderConditionViewModel>
+
+
+<h2>Patients Average Age Based on their Medical Condition</h2>
+<br />
+
+<table class="table">
+
+    <tr>
+        <th>Gender</th>
+        <th>Medical Condition</th>
+        <th>Average Age</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Gender</td>
+            <td>@item.Condition</td>
+            <td>@item.AverageAge</td>
+        </tr>
+    }
+</table>

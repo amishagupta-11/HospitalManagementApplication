@@ -1,0 +1,32 @@
+﻿@model List<HospitalManagement.ViewModel.IndividualTreatmentSuccessRateViewModel>
+
+    <title>Individual Treatment Success Rates</title>
+
+<body>
+    <h2>Individual Treatment Success Rates for @Model.FirstOrDefault()?.MedicalCondition</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Treatment Name</th>
+                <th>Total Treatments</th>
+                <th>Successful Treatments</th>
+                <th>Success Rate</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var treatmentRate in Model)
+            {
+                <tr>
+                    <td>@treatmentRate.TreatmentName</td>
+                    <td>@treatmentRate.TotalTreatments</td>
+                    <td>@treatmentRate.SuccessfulTreatments</td>
+                    <td>@treatmentRate.SuccessRate.ToString("P")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    
+
+</body>
+</html>

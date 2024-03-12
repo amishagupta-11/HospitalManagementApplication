@@ -1,0 +1,43 @@
+﻿@model List<HospitalManagement.ViewModel.PatientWithMultipleMedicalConditionsViewModel>
+
+<h2>Patients with Multiple Medical Conditions</h2>
+
+@if (Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Patient ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Age</th>
+                <th>Conditions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var patientViewModel in Model)
+            {
+                <tr>
+                    <td>@patientViewModel.Patient.PatientId</td>
+                    <td>@patientViewModel.Patient.FirstName</td>
+                    <td>@patientViewModel.Patient.LastName</td>
+                    <td>@patientViewModel.Patient.Age</td>
+                    <td>
+                        <ul>
+                            @foreach (var condition in patientViewModel.Conditions)
+                            {
+                                <li>@condition.MedicalCondition</li>
+                            }
+                        </ul>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No patients with multiple medical conditions found.</p>
+}
+
+

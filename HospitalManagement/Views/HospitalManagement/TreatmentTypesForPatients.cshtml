@@ -1,0 +1,33 @@
+﻿@model List<HospitalManagement.ViewModel.TreatmentTypesViewModel>
+<h2> Patients with multiple @Model.FirstOrDefault().MedicalCondition treatments</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Treatment Type</th>
+            <th>First Name</th>
+            <th>Age</th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.TreatmentType</td>
+            <td>
+                <ul>
+                    @foreach (var patient in item.Patients)
+                    {
+                        @patient.FirstName  <br/>                    
+                    }
+                </ul>
+            </td>
+            <td>
+                @foreach (var patient in item.Patients)
+                {
+                    @patient.Age
+                    <br />
+                }
+            </td>
+        </tr>
+    }
+</table>

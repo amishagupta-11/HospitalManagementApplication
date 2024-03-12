@@ -1,0 +1,48 @@
+﻿@model List<HospitalManagement.ViewModel.PatientWithMultipleTreatmentsViewModel>
+<h2>Patients details With Multiple Treatments</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Patient Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Gender</th>
+            <th>Age</th>
+            <th>Treatment Details</th>
+            <th>Count</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Patient.PatientId
+                </td>
+                <td>
+                    @item.Patient.FirstName              
+
+                </td>
+                <td>
+                    @item.Patient.LastName
+                </td>
+                <td>
+                    @item.Patient.Gender
+                </td>
+                <td>
+                    @item.Patient.Age
+                </td>
+                <td>
+                    <ul>
+                        @foreach (var treatment in item.Treatments)
+                        {
+                            <li>@treatment.TreatmentType</li>
+                        }
+                    </ul>
+                </td>
+                <td>@item.Treatments.Count()</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
